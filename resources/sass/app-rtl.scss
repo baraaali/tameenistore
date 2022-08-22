@@ -1,0 +1,18 @@
+// rtl styles
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap');
+
+body{
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+}
+
+label,input,a,.select2 ,option,h1{
+    text-align: right;
+}
+label{
+    width: 100%;
+}
+.direction,.select2-results__options {
+    text-align: right;
+    direction: rtl;
+}
