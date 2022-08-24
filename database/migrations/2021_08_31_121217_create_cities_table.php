@@ -18,12 +18,11 @@ class CreateCitiesTable extends Migration
             $table->string('en_name');
             $table->string('ar_name');
             $table->integer('visitors')->default(0);
-            $table->integer('governorate_id');
+            $table->unsignedBigInteger('governorate_id');
             $table->integer('status')->default(1);
             $table->softDeletes();
             $table->timestamps();
-
-            $table->foreign('governorate_id')->references('governorates')->on('id')->onDelete('cascade');
+            $table->foreign('governorate_id')->references('id')->on('governorates')->constrained()->onDelete('cascade');
         
         });
     }

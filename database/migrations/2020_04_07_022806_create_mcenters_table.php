@@ -15,7 +15,7 @@ class CreateMcentersTable extends Migration
     {
         Schema::create('mcenters', function (Blueprint $table) {
             $table->id();
-             $table->unsignedBigInteger('country_id');
+            $table->unsignedBigInteger('country_id');
             $table->foreign('country_id')->references('id')->on('countries')->constrained()->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->constrained()->onDelete('cascade');

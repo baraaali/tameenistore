@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnTypeToDepartmentmemberships extends Migration
+class AddColumnTypeToMemberships extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddColumnTypeToDepartmentmemberships extends Migration
      */
     public function up()
     {
-        Schema::table('departmentmemberships', function (Blueprint $table) {
+        Schema::table('add_column_type_to_memberships', function (Blueprint $table) {
             $table->integer('type');
         });
     }
@@ -25,7 +25,7 @@ class AddColumnTypeToDepartmentmemberships extends Migration
      */
     public function down()
     {
-        Schema::table('departmentmemberships', function (Blueprint $table) {
+        Schema::table('add_column_type_to_memberships', function (Blueprint $table) {
             $table->dropColumn('type');
         });
     }

@@ -25,7 +25,7 @@ class CreateExhibitionsTable extends Migration
             $table->longText('ar_description')->nullable();
             $table->string('image')->nullable();
             $table->string('fb_page')->nullable();
-             $table->string('instagram')->nullable();
+            $table->string('instagram')->nullable();
             $table->string('twitter_page')->nullable();
             $table->string('website')->nullable();
             $table->string('email')->nullable();

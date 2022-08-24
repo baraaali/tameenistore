@@ -18,12 +18,12 @@ class CreateGovernoratesTable extends Migration
             $table->string('en_name');
             $table->string('ar_name');
             $table->integer('visitors')->default(0);
-            $table->integer('country_id');
+            $table->unsignedBigInteger('country_id');
             $table->integer('status')->default(1);
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('country_id')->references('countries')->on('id')->onDelete('cascade');
+            $table->foreign('country_id')->references('id')->on('countries')->constrained()->onDelete('cascade');
         });
     }
 

@@ -13,7 +13,7 @@ class AddCityIdToServicesNew extends Migration
      */
     public function up()
     {
-        Schema::table('services_new', function (Blueprint $table) {
+        Schema::table('services', function (Blueprint $table) {
             $table->integer('city_id');
         });
     }
@@ -25,7 +25,7 @@ class AddCityIdToServicesNew extends Migration
      */
     public function down()
     {
-        Schema::table('services_new', function (Blueprint $table) {
+        Schema::table('services', function (Blueprint $table) {
             $table->dropColumn('city_id');
         });
     }

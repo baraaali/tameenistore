@@ -19,12 +19,12 @@ class CreateServiceChildCategoriesTable extends Migration
             $table->string('en_name');
             $table->text('ar_description')->nullable();
             $table->text('en_description')->nullable();
-            $table->integer('service_sub_category_id');
+            $table->unsignedBigInteger('service_sub_category_id');
             $table->enum('status',['0','1'])->default('0');
             $table->string('image')->nullable();
             $table->timestamps();
 
-            $table->foreign('service_sub_category_id')->references('service_sub_categories')->on('id')->onDelete('cascade');
+            $table->foreign('service_sub_category_id')->references('id')->on('service_sub_categories')->constrained()->onDelete('cascade');
 
         });
     }

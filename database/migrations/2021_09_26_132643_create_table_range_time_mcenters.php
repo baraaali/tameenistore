@@ -15,13 +15,13 @@ class CreateTableRangeTimeMcenters extends Migration
     {
         Schema::create('range_time_mcenters', function (Blueprint $table) {
             $table->id();
-            $table->integer('mcenter_id');
+            $table->unsignedBigInteger('mcenter_id');
             $table->enum('day',['all_days','sunday','monday','tuesday','wednesday','thursday','friday','saturday']);
             $table->string('start_time');
             $table->string('end_time');
             $table->timestamps();
 
-            $table->foreign('mcenter_id')->references('mcenters')->on('id')->onDelete('cascade');
+            $table->foreign('mcenter_id')->references('id')->on('mcenters')->constrained()->onDelete('cascade');
 
         });
     }
@@ -33,6 +33,6 @@ class CreateTableRangeTimeMcenters extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_range_time_mcenters');
+        Schema::dropIfExists('range_time_mcenters');
     }
 }

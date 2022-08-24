@@ -15,17 +15,17 @@ class CreateMcenterServicesTable extends Migration
     {
         Schema::create('mcenter_services', function (Blueprint $table) {
             $table->id();
-            $table->integer('mcenter_id');
-            $table->integer('mcenter_vehicle_id');
+            $table->unsignedBigInteger('mcenter_id');
+            $table->unsignedBigInteger('mcenter_vehicle_id')->unsigned();;
             $table->string('ar_name');
             $table->string('en_name');
             $table->text('ar_description');
             $table->decimal('price');
             $table->text('en_description');
             $table->enum('status',['0','1'])->default('0');
+            $table->foreign('mcenter_id')->references('id')->on('mcenters')->constrained()->onDelete('cascade');
+           // $table->foreign('mcenter_vehicle_id')->references('id')->on('mcenter_vehicles')->constrained()->onDelete('cascade');
             $table->timestamps();
-            $table->foreign('mcenter_id')->references('mcenters')->on('id')->onDelete('cascade');
-            $table->foreign('mcenter_vehicle_id')->references('mcenter_vehicles')->on('id')->onDelete('cascade');
         });
 
     }

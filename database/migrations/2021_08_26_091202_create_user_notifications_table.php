@@ -15,13 +15,12 @@ class CreateUserNotificationsTable extends Migration
     {
         Schema::create('user_notifications', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->text('subject');
             $table->text('body');
             $table->enum('viewed',[0,1])->default(0);
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users')->OnDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->constrained()->onDelete('cascade');
         });
     }
 

@@ -13,8 +13,8 @@ class MakeMiniSubCatNotNullServicesNew extends Migration
      */
     public function up()
     {
-        Schema::table('services_new', function (Blueprint $table) {
-            $table->integer('mini_sub_cat')->nullable(true)->change();
+        Schema::table('mcenters', function (Blueprint $table) {
+            $table->integer('sub_category')->nullable(true)->change();
         });
     }
 
@@ -25,8 +25,8 @@ class MakeMiniSubCatNotNullServicesNew extends Migration
      */
     public function down()
     {
-        Schema::table('services_new', function (Blueprint $table) {
-            $table->integer('mini_sub_cat')->nullable(false)->change();
+        Schema::table('mcenters', function (Blueprint $table) {
+            $table->integer('sub_category')->nullable(false)->change();
         });
     }
 }

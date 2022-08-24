@@ -20,11 +20,11 @@ class CreateMcenterAdditionalServicesTable extends Migration
             $table->text('ar_description');
             $table->text('en_description');
             $table->decimal('price');
-            $table->integer('mcenter_service_id');
+            $table->unsignedBigInteger('mcenter_service_id');
             $table->enum('status',['0','1'])->default('0');
             $table->timestamps();
 
-            $table->foreign('mcenter_service_id')->references('mcenter_services')->on('id')->onDelete('cascade');
+            $table->foreign('mcenter_service_id')->references('id')->on('mcenter_services')->constrained()->onDelete('cascade');
 
         });
     }

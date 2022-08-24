@@ -14,7 +14,7 @@ class AddColumnUserIdToCars extends Migration
     public function up()
     {
         Schema::table('cars', function (Blueprint $table) {
-            $table->integer('user_id')->after('agent_id')->nullable();
+            $table->integer('user_id')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AddColumnUserIdToCars extends Migration
     public function down()
     {
         Schema::table('cars', function (Blueprint $table) {
-            //
+            $table->dropColumn('user_id');
         });
     }
 }

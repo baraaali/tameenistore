@@ -24,11 +24,11 @@ class CreatePromotionsTable extends Migration
             $table->string('image');
             $table->text('body');
             $table->text('notes')->nullable();;
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->enum('status',['in review','approved','rejected'])->default('in review');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->constrained()->onDelete('cascade');
         });
     }
 

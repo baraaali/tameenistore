@@ -13,7 +13,7 @@ class CreateAutoNotificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('AutoNotification', function (Blueprint $table) {
+        Schema::create('auto_notifications', function (Blueprint $table) {
             $table->id();
             $table->text('subject');
             $table->text('body');
